@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+}
+
+#masterDiv {
+    display: grid;
+    grid: auto / auto auto auto;
+    grid-gap: 10px;
+    background-color: #EEA47F;
+    padding: 10px;
+    padding: 2% 2%;
+    height: 30vh;
+}
+
+#masterDiv div {
+    padding: 2% 2%;
+    border: 1px black solid;
+    border-radius: 10px;
+    background: #00539C;
+    color: white;
+    cursor: pointer;
+}
+
+#displayDiv {
+    background: #00539C;
+    color: #EEA47F;
+}
