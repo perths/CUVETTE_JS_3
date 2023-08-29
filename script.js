@@ -327,7 +327,6 @@ const divConfig = {
         function: () => {
             const headerText = 'All Foods';
             // foods.forEach((food) => console.log(food));
-            console.log('All Foods', foods);
 
             displayFoodItems(headerText, foods, ['id', 'foodname', 'calorie', 'category', 'proteins', 'cab']);
         }
@@ -339,8 +338,6 @@ const divConfig = {
             foods.filter((food) => food.category == 'Vegetable' ? vegetables.push(food) : null);
 
             const headerText = `Total No. of Vegetables - ${vegetables.length}`;
-            console.log(headerText);
-            console.log('Vegetables', vegetables);
 
             displayFoodItems(headerText, vegetables, ['foodname']);
         }
@@ -352,8 +349,6 @@ const divConfig = {
             foods.filter((food) => food.category == 'Fruit' ? fruits.push(food) : null);
 
             const headerText = `Total No. of Fruits - ${fruits.length}`;
-            console.log(headerText);
-            console.log('Fruits', fruits);
 
             displayFoodItems(headerText, fruits, ['foodname']);
         }
@@ -365,8 +360,6 @@ const divConfig = {
             foods.filter((food) => food.category == 'Protein' ? proteins.push(food) : null);
 
             const headerText = `Total No. of Proteins - ${proteins.length}`;
-            console.log(headerText);
-            console.log('Proteins', proteins);
 
             displayFoodItems(headerText, proteins, ['foodname']);
         }
@@ -378,8 +371,6 @@ const divConfig = {
             foods.filter((food) => food.category == 'Nuts' ? nuts.push(food) : null);
 
             const headerText = `Total No. of Nuts - ${nuts.length}`;
-            console.log(headerText);
-            console.log('Nuts', nuts);
 
             displayFoodItems(headerText, nuts, ['foodname']);
         }
@@ -391,8 +382,6 @@ const divConfig = {
             foods.filter((food) => food.category == 'Grain' ? grains.push(food) : null);
 
             const headerText = `Total No. of Grains - ${grains.length}`;
-            console.log(headerText);
-            console.log('Grains', grains);
 
             displayFoodItems(headerText, grains, ['foodname']);
         }
@@ -404,8 +393,6 @@ const divConfig = {
             foods.filter((food) => food.category == 'Dairy' ? dairies.push(food) : null);
 
             const headerText = `Total No. of Dairy items - ${dairies.length}`;
-            console.log(headerText);
-            console.log('Dairies', dairies);
 
             displayFoodItems(headerText, dairies, ['foodname']);
         }
@@ -417,8 +404,6 @@ const divConfig = {
             foods.filter((food) => food.calorie > 100 ? foodsCal.push(food) : null);
 
             const headerText = `Total No. of food items with calorie > 100 = ${foodsCal.length}`;
-            console.log(headerText);
-            console.log('Food with calorie > 100', foodsCal);
 
             displayFoodItems(headerText, foodsCal, ['foodname', 'calorie']);
         }
@@ -430,8 +415,6 @@ const divConfig = {
             foods.filter((food) => food.calorie < 100 ? foodsCal.push(food) : null);
 
             const headerText = `Total No. of food items with calorie < 100 = ${foodsCal.length}`;
-            console.log(headerText);
-            console.log('Food with calorie < 100', foodsCal);
 
             displayFoodItems(headerText, foodsCal, ['foodname', 'calorie']);
         }
@@ -443,7 +426,6 @@ const divConfig = {
             sortedByProteinDesc = foods.sort((a, b) => b.proteins - a.proteins);
 
             const headerText = 'Food items with highest protein content to lowest';
-            console.log(headerText, sortedByProteinDesc);
 
             displayFoodItems(headerText, sortedByProteinDesc, ['foodname', 'proteins'])
         }
@@ -455,7 +437,6 @@ const divConfig = {
             sortedByCabAsc = foods.sort((a, b) => a.cab - b.cab);
 
             const headerText = 'Food items with lowest cab content to highest';
-            console.log(headerText, sortedByCabAsc);
 
             displayFoodItems(headerText, sortedByCabAsc, ['foodname', 'cab'])
         }
@@ -470,6 +451,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         const div = document.createElement("div");
         div.id = key;
         div.innerHTML = divConfig[key]['text'];
+        
         mainDiv.appendChild(div);
         document.getElementById(key).addEventListener("click", divConfig[key]['function']);
     }
@@ -477,6 +459,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 const displayFoodItems = (headerText, foodItems, displayFields) => {
     try {
+        console.clear();
+        console.log(headerText);
+        console.log(foodItems);
+
         const displayDiv = document.getElementById('displayDiv');
         displayDiv.innerHTML = '';
         displayDiv.style.padding = '2% 2%';
